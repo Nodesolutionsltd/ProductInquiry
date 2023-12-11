@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<page layout="2columns-right" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+<head>
+    <css src="Nodesolutions_ProductInquiry::css/inquiry.css" />
+</head>
+<body>
+   <referenceContainer name="product.info.main">
+        <block class="Nodesolutions\ProductInquiry\Block\Details" name="product.info.post.requirements"
+          template="Nodesolutions_ProductInquiry::catalog/product/view/product_inquiry.phtml" ifconfig="ns_inq/general/enable"
+           />
+    </referenceContainer>
+    <move element="product.info.post.requirements" destination="product.info.addtocart"/>
+</body>
+</page>

@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+   <body>
+      <referenceBlock name="product.info.main">
+          <block class="Nodesolutions\ProductInquiry\Block\Details" name="product.info.bundle.inquiry"
+          template="Nodesolutions_ProductInquiry::catalog/product/view/product_inquiry.phtml" before="product.info.addtocart" ifconfig="ns_inq/general/enable"/>
+      </referenceBlock>
+      <move element="product.info.bundle.inquiry" destination="product.info.addtocart.bundle" before="-"/>
+   </body>
+</page>

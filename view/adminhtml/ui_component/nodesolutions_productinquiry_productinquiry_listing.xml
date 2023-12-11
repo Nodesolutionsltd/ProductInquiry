@@ -1,0 +1,159 @@
+<?xml version="1.0" ?>
+<listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+	<argument name="data" xsi:type="array">
+		<item name="js_config" xsi:type="array">
+			<item name="provider" xsi:type="string">nodesolutions_productinquiry_productinquiry_listing.nodesolutions_productinquiry_productinquiry_listing_data_source</item>
+		</item>
+	</argument>
+	<settings>
+		<spinner>nodesolutions_productinquiry_productinquiry_columns</spinner>
+		<deps>
+			<dep>nodesolutions_productinquiry_productinquiry_listing.nodesolutions_productinquiry_productinquiry_listing_data_source</dep>
+		</deps>
+		<!-- <buttons>
+			<button name="add">
+				<url path="*/*/new"/>
+				<class>primary</class>
+				<label translate="true">Add new ProductInquiry</label>
+			</button>
+		</buttons> -->
+	</settings>
+	<dataSource name="nodesolutions_productinquiry_productinquiry_listing_data_source" component="Magento_Ui/js/grid/provider">
+		<settings>
+			<storageConfig>
+				<param name="indexField" xsi:type="string">productinquiry_id</param>
+			</storageConfig>
+			<updateUrl path="mui/index/render"/>
+		</settings>
+		<aclResource>Nodesolutions_ProductInquiry::ProductInquiry</aclResource>
+		<dataProvider name="nodesolutions_productinquiry_productinquiry_listing_data_source" class="Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider">
+			<settings>
+				<requestFieldName>id</requestFieldName>
+				<primaryFieldName>productinquiry_id</primaryFieldName>
+			</settings>
+		</dataProvider>
+	</dataSource>
+	<listingToolbar name="listing_top">
+		<settings>
+			<sticky>true</sticky>
+		</settings>
+		<bookmark name="bookmarks"/>
+		<columnsControls name="columns_controls"/>
+		<filters name="listing_filters"/>
+		<paging name="listing_paging"/>
+	</listingToolbar>
+	<columns name="nodesolutions_productinquiry_productinquiry_columns">
+		<settings>
+			<editorConfig>
+				<param name="selectProvider" xsi:type="string">nodesolutions_productinquiry_productinquiry_listing.nodesolutions_productinquiry_productinquiry_listing.nodesolutions_productinquiry_productinquiry_columns.ids</param>
+				<param name="enabled" xsi:type="boolean">true</param>
+				<param name="indexField" xsi:type="string">productinquiry_id</param>
+				<param name="clientConfig" xsi:type="array">
+					<item name="saveUrl" xsi:type="url" path="nodesolutions_productinquiry/ProductInquiry/inlineEdit"/>
+					<item name="validateBeforeSave" xsi:type="boolean">false</item>
+				</param>
+			</editorConfig>
+			<childDefaults>
+				<param name="fieldAction" xsi:type="array">
+					<item name="provider" xsi:type="string">nodesolutions_productinquiry_productinquiry_listing.nodesolutions_productinquiry_productinquiry_listing.nodesolutions_productinquiry_productinquiry_columns_editor</item>
+					<item name="target" xsi:type="string">startEdit</item>
+					<item name="params" xsi:type="array">
+						<item name="0" xsi:type="string">${ $.$data.rowIndex }</item>
+						<item name="1" xsi:type="boolean">true</item>
+					</item>
+				</param>
+			</childDefaults>
+		</settings>
+		<selectionsColumn name="ids">
+			<settings>
+				<indexField>productinquiry_id</indexField>
+			</settings>
+		</selectionsColumn>
+		<column name="productinquiry_id">
+			<settings>
+				<filter>text</filter>
+				<sorting>asc</sorting>
+				<label translate="true">ID</label>
+			</settings>
+		</column>
+		<column name="prd_name">
+			<settings>
+				<filter>text</filter>
+				<label translate="true">Product Name</label>
+				<editor>
+					<editorType>text</editorType>
+					<validation>
+						<rule name="required-entry" xsi:type="boolean">false</rule>
+					</validation>
+				</editor>
+			</settings>
+		</column>
+		
+	
+		<actionsColumn name="prd_url" class="Nodesolutions\ProductInquiry\Ui\Component\Listing\Column\LinkColumn">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="bodyTmpl" xsi:type="string">ui/grid/cells/html</item>
+                    <item name="filter" xsi:type="string">text</item>                    
+                    <item name="label" xsi:type="string" translate="true">Product Url</item>
+                </item>
+            </argument>
+        </actionsColumn>
+
+		<column name="cust_name">
+			<settings>
+				<filter>text</filter>
+				<label translate="true">Customer Name</label>
+				<editor>
+					<editorType>text</editorType>
+					<validation>
+						<rule name="required-entry" xsi:type="boolean">false</rule>
+					</validation>
+				</editor>
+			</settings>
+		</column>
+		<column name="cust_email">
+			<settings>
+				<filter>text</filter>
+				<label translate="true">Customer Email</label>
+				<editor>
+					<editorType>text</editorType>
+					<validation>
+						<rule name="required-entry" xsi:type="boolean">false</rule>
+					</validation>
+				</editor>
+			</settings>
+		</column>
+		<column name="cust_phn_no">
+			<settings>
+				<filter>text</filter>
+				<label translate="true">Customer Phn. no.</label>
+				<editor>
+					<editorType>text</editorType>
+					<validation>
+						<rule name="required-entry" xsi:type="boolean">false</rule>
+					</validation>
+				</editor>
+			</settings>
+		</column>
+		<column name="cust_msg">
+			<settings>
+				<filter>text</filter>
+				<label translate="true">Customer Message</label>
+				<editor>
+					<editorType>text</editorType>
+					<validation>
+						<rule name="required-entry" xsi:type="boolean">false</rule>
+					</validation>
+				</editor>
+			</settings>
+		</column>
+		<actionsColumn name="actions" class="Nodesolutions\ProductInquiry\Ui\Component\Listing\Column\ProductInquiryActions">
+			<settings>
+				<indexField>productinquiry_id</indexField>
+				<resizeEnabled>false</resizeEnabled>
+				<resizeDefaultWidth>107</resizeDefaultWidth>
+			</settings>
+		</actionsColumn>
+	</columns>
+</listing>

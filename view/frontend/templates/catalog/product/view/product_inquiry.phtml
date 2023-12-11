@@ -1,0 +1,109 @@
+<button type="button" class="action primary btn btn-primary btn-lg" id="node_popupButton" data-toggle="modal"
+data-target="#myModal"><?php echo __('Product Inquiry')?></button>
+<?php $currentProduct = $block->getCurrentProduct(); ?>
+
+<div class="modal fade" id="myModal" role="dialog" style="display:none;">
+  <div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title NodeSolutions_prd_inquiry"><?php echo __('Product Inquiry')?></h4>
+
+        <div class="nds_prdinfo"> 
+            <div class="nds-prodimg-block">
+            <?php
+            $productImages = $block->getCurrentProductImages();
+            if ($productImages) {
+                foreach ($productImages as $image) {
+                    echo '<img src="' . $image->getUrl() . '" alt="' . $image->getLabel() . '" width="70" height="70" />'; 
+                }
+            }
+            ?>
+            </div>
+            <div class="nds-prodname-block">
+                <span class="um-prodname-label"><b>Product Name : </b></span> 
+                <span class="um-prodname"><?php echo ' ' . $currentProduct->getName(); ?></span>
+            </div>
+            <div class="nds-prodsku-block">
+                <span class="um-prodsku-label"><b>Product SKU :</b></span>
+                <span class="um-prodsku"><?php echo ' ' . $currentProduct->getSku(); ?></span>
+            </div>
+        </div>
+
+      </div>
+      <div class="modal-body">
+       <form class="form" id="myModalForm" action="<?php echo $block->getFormAction(); ?>" method="post" data-hasrequired="<?php echo __('* Required Fields') ?>"
+        data-mage-init='{"validation":{}}'>
+        <fieldset class="fieldset">
+            
+            <div class="field name required">
+                <label class="label" for="name"><span><?php echo __('Name');?></span></label>
+                <div class="control">
+                        <input name="name" id="popup-input" title="Name" value="" class="input-text small-input" type="text" data-validate="{'required':true}"/>
+                        <div class="error-message error-red" id="customer_name_error"></div>
+                </div>
+            </div>
+            
+            <div class="field email required">
+                <label class="label" for="email"><span><?php echo __('Email');?></span></label>
+                <div class="control">
+                        <input name="email-id" id="popup-email" title="Email" value="" class="input-text" type="text" data-validate="{'required':true, 'validate-email':true}"/>
+                        <div class="error-message error-red" id="customer_email_error"></div>
+                </div>
+            </div>
+
+            <div class="field tel">
+                <label class="label" for="telephone"><span><?php echo __('Telephone');?></span></label>
+                <div class="control">
+                        <input name="telephone" id="popup-tel" title="Telephone" value="" class="input-text" type="text"/>
+                </div>
+            </div>
+
+            <div class="field tel required">
+                <label class="label" for="description"><span><?php echo __('Description');?></span></label>
+                <div class="control">
+                    <textarea name="description" id="requirement" title="Description" rows="5" value="" class="input-text" data-validate="{'required':true}"></textarea>
+                    <div class="error-message error-red" id="input-textarea_error"></div>
+                </div>
+            </div>
+
+        </fieldset>
+        <input type="hidden" id="factorDiscount" value="<?php echo $block->getUrl('inquiry/index/details'); ?>"/>
+        <input type="hidden" id="current_prdid" value="<?php echo $currentProduct->getProductId(); ?>"/>
+        <input type="hidden" id="current_prdurl" value="<?php echo $currentProduct->getProductUrl(); ?>"/>
+        <input type="hidden" id="current_prdname" value="<?php echo $currentProduct->getName(); ?>"/>
+        <button id="popup-submit" type="submit" class="action primary btn btn-default"><?php echo __('Submit')?></button>
+      </form>
+    </div>
+  </div>
+</div>
+</div>
+
+<script>
+  require(['jquery','mage/mage', 'Nodesolutions_ProductInquiry/js/mymodal-component'],
+    function ($) {
+      return;
+    }
+    );
+  </script>
+<script type="text/javascript">
+    require(['jquery'], function($) {
+        $(document).ready(function() {
+            // Check if the screen width is greater than or equal to 768px (adjust as needed)
+            if ($(window).width() >= 768) {
+                // Select the HTML element by its ID or class
+                var element = $('.nds_prdinfo'); // Replace with your element's ID or class
+
+                // Add CSS styles
+                element.css({
+                    'display': 'flex',        
+                    'justify-content': 'flex-start',  
+                    'align-items': 'center',  
+                    'gap': '50px',  
+                    'padding': '10px 0px'
+
+                });
+            }
+        });
+    });
+</script>

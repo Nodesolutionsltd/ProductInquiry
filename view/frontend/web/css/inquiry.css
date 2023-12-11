@@ -1,0 +1,9 @@
+button#node_popupButton {
+    width: 49%;
+    line-height: 2.2rem;
+    padding: 14px 17px;
+    font-size: 1.8rem;
+}
+.error-red {
+    color: red; /* Set the text color to red */
+}

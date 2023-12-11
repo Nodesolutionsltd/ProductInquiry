@@ -1,0 +1,15 @@
+<?xml version="1.0" ?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+	<table name="nodesolutions_productinquiry_productinquiry" resource="default" engine="innodb" comment="nodesolutions_productinquiry_productinquiry Table">
+		<column xsi:type="int" name="productinquiry_id" padding="10" unsigned="true" nullable="false" identity="true" comment="Entity Id"/>
+		<constraint xsi:type="primary" referenceId="PRIMARY">
+			<column name="productinquiry_id"/>
+		</constraint>
+		<column name="prd_name" nullable="true" xsi:type="varchar" comment="prd_name" length="255"/>
+		<column name="prd_url" nullable="true" xsi:type="varchar" comment="prd_url" length="255"/>
+		<column name="cust_name" nullable="true" xsi:type="varchar" comment="cust_name" length="255"/>
+		<column name="cust_email" nullable="true" xsi:type="varchar" comment="cust_email" length="255"/>
+		<column name="cust_phn_no" nullable="true" xsi:type="text" comment="cust_phn_no"/>
+		<column name="cust_msg" nullable="true" xsi:type="text" comment="cust_msg"/>
+	</table>
+</schema>

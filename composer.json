@@ -1,0 +1,28 @@
+{
+    "name": "nodesolutions/productinquiry",
+    "description": "product inquiry for customer",
+    "type": "magento2-module",
+    "version": "1.0.0",
+    "license": "GPL-3.0",
+    "authors": [
+        {
+            "name": "NodeSolutions Team",
+            "email": "info@nodesolutions.ca",
+            "homepage": "https://nodesolutions.ca/"
+        }
+    ],
+    "require": {
+    "php": "~7.2.0||~7.3.0||~7.4.0||~8.1.0||~8.2.0",
+    "magento/framework": "~100.0.4"
+    },
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Nodesolutions\\ProductInquiry\\": ""
+        }
+    }
+}

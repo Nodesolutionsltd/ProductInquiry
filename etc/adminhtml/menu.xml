@@ -1,0 +1,7 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+	<menu>
+		<add id="Nodesolutions::top_level" title="Nodesolutions" module="Nodesolutions_ProductInquiry" sortOrder="9999" resource="Magento_Backend::content"/>
+		<add id="NodeSolutions_ProductInquiry::nodesolutions_productinquiry_productinquiry" title="ProductInquiry" module="Nodesolutions_ProductInquiry" sortOrder="9999" resource="Magento_Backend::content" parent="Nodesolutions::top_level" action="nodesolutions_productinquiry/productinquiry/index"/>
+	</menu>
+</config>

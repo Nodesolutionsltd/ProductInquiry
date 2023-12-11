@@ -1,0 +1,19 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+	<preference for="Nodesolutions\ProductInquiry\Api\ProductInquiryRepositoryInterface" type="Nodesolutions\ProductInquiry\Model\ProductInquiryRepository"/>
+	<preference for="Nodesolutions\ProductInquiry\Api\Data\ProductInquiryInterface" type="Nodesolutions\ProductInquiry\Model\ProductInquiry"/>
+	<preference for="Nodesolutions\ProductInquiry\Api\Data\ProductInquirySearchResultsInterface" type="Magento\Framework\Api\SearchResults"/>
+	<virtualType name="Nodesolutions\ProductInquiry\Model\ResourceModel\ProductInquiry\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+		<arguments>
+			<argument name="mainTable" xsi:type="string">nodesolutions_productinquiry_productinquiry</argument>
+			<argument name="resourceModel" xsi:type="string">Nodesolutions\ProductInquiry\Model\ResourceModel\ProductInquiry\Collection</argument>
+		</arguments>
+	</virtualType>
+	<type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+		<arguments>
+			<argument name="collections" xsi:type="array">
+				<item name="nodesolutions_productinquiry_productinquiry_listing_data_source" xsi:type="string">Nodesolutions\ProductInquiry\Model\ResourceModel\ProductInquiry\Grid\Collection</item>
+			</argument>
+		</arguments>
+	</type>
+</config>
